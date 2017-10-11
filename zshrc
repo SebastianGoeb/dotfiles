@@ -1,5 +1,9 @@
+# Allow local customizations in the ~/.zshrc_local_before file
+if [ -f ~/.zshrc_local_before ]; then
+    source ~/.zshrc_local_before
+fi
+
 # zplug stuff
-export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 # Credit: https://terriblecode.com/blog/zplug-from-a-former-oh-my-zsh-user/
@@ -61,3 +65,8 @@ bindkey "^[^[[C" forward-word
 # Aliases
 alias ll="ls -hl"
 alias l="ls -hla"
+
+# Allow local customizations in the ~/.zshrc_local_after file
+if [ -f ~/.zshrc_local_after ]; then
+    source ~/.zshrc_local_after
+fi
