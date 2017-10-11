@@ -1,0 +1,13 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+- clean: ['~']
+- link:
+    ~/.dotfiles: ''
+    ~/.gitconfig:
+    ~/.gitignore_global:
+    ~/.zshrc:
+- shell:
+    # the following have to run after linking ~/.gitconfig
+    - [git submodule update --init --recursive, Installing submodules]
