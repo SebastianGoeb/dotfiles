@@ -3,6 +3,9 @@ if [ -f ~/.zshrc_local_before ]; then
     source ~/.zshrc_local_before
 fi
 
+# Visual editor
+export VISUAL="vim"
+
 # zplug stuff
 source $ZPLUG_HOME/init.zsh
 
