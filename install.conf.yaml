@@ -8,6 +8,5 @@
     ~/.gitconfig:
     ~/.gitignore_global:
     ~/.zshrc:
-- shell:
-    # the following have to run after linking ~/.gitconfig
-    - [git submodule update --init --recursive, Installing submodules]
+# - shell:
+    # any git commands have to run after linking ~/.gitconfig
