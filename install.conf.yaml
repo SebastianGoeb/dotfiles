@@ -7,7 +7,9 @@
     ~/.dotfiles: ''
     ~/.gitconfig:
     ~/.gitignore_global:
+    ~/.shell:
     ~/.vimrc:
+    ~/.zsh:
     ~/.zshrc:
 # - shell:
     # any git commands have to run after linking ~/.gitconfig
