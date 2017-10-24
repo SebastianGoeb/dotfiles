@@ -9,7 +9,7 @@ if [ -f ~/.zshrc_local_before ]; then
 fi
 
 # shell settings
-source ~/.shell/settings.zsh
+source ~/.shell/settings.sh
 
 # aliases
 source ~/.shell/aliases.sh
