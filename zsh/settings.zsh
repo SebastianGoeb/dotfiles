@@ -2,6 +2,14 @@
 # Zsh Settings #
 ################
 
+# reset fpath
+tmp=()
+for el in $fpath; do
+    [[ $el =~ '^/usr' ]] && tmp+=($el)
+done
+export fpath=($tmp)
+unset tmp
+
 # configure zshcompsys
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' expand prefix suffix
