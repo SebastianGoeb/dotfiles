@@ -5,7 +5,7 @@
 # reset fpath
 tmp=()
 for el in $fpath; do
-    [[ $el =~ '^/usr' ]] && tmp+=($el)
+    ! [[ $el =~ 'zplug' ]] && tmp+=($el)
 done
 export fpath=($tmp)
 unset tmp
