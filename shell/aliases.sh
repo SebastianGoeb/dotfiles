@@ -6,6 +6,6 @@
 alias grep="grep --color"
 
 # ls aliases
-alias ll='ls -lah'
 alias la='ls -A'
-alias l='ls'
+alias l='ls -lh'
+alias ll='ls -lah'
