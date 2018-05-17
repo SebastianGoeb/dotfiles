@@ -27,6 +27,10 @@ zstyle :compinstall filename '/Users/sebastian/.zshrc'
 autoload -Uz compinit
 compinit
 
+# configure backward-kill
+autoload -U select-word-style
+select-word-style bash
+
 # configure history
 HISTFILE=$HOME/.histfile
 HISTSIZE=100000
