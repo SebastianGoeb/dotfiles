@@ -2,11 +2,21 @@
 # Zplug Configuration #
 #######################
 
+# ZPLUG_HOME might be different depending on installation type (script/homebrew)
 case "$OSTYPE" in
     darwin*)    export ZPLUG_HOME=/usr/local/opt/zplug ;;
     *)          export ZPLUG_HOME=~/.zplug ;;
 esac
 
+# Remove zplug from fpath, otherwise zplug env vars from parent zsh might break child zsh
+tmp=()
+for el in $fpath; do
+    ! [[ $el =~ 'zplug' ]] && tmp+=($el)
+done
+export fpath=($tmp)
+unset tmp
+
+# setup zplug
 if [[ -v ZPLUG_HOME ]]; then
     if [[ -f $ZPLUG_HOME/init.zsh ]]; then
         # initialize zplug
