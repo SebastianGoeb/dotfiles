@@ -9,3 +9,4 @@ source ~/.zsh/history.zsh
 source ~/.zsh/keybindings.zsh
 source ~/.zsh/misc.zsh
 source ~/.zsh/zplug.zsh
+source ~/.zsh/sdkman.zsh
