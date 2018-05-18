@@ -1,11 +1,7 @@
-###########
-# Aliases #
-###########
-
-# color
+# grep
 alias grep="grep --color"
 
-# ls aliases
+# ls
 case "$OSTYPE" in
     bsd*)       alias ls="ls -G" ;;
     darwin*)    alias ls="ls -G" ;;
@@ -15,7 +11,7 @@ alias la="ls -A"
 alias l="ls -lhr"
 alias ll="ls -lah"
 
-# git aliases
+# git
 alias gst="git status"
 alias gd="git diff"
 alias gdc="git diff --cached"

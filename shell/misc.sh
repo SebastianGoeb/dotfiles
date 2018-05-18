@@ -1,7 +1,3 @@
-##################
-# Shell Settings #
-##################
-
 # visual editor
 export VISUAL="vim"
 
