@@ -1,6 +1,6 @@
 # generic
-source ~/.shell/settings.sh
 source ~/.shell/aliases.sh
+source ~/.shell/misc.sh
 
 # zsh specific
 source ~/.zsh/completion.zsh
