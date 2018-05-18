@@ -19,4 +19,5 @@ alias gc="git commit"
 alias gco="git checkout"
 alias gcm="git checkout master"
 alias gl="git log --graph --all --oneline --decorate"
-
+alias gpl="git pull"
+alias gpu="git push"
