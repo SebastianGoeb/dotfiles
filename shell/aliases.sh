@@ -6,6 +6,11 @@
 alias grep="grep --color"
 
 # ls aliases
+case "$OSTYPE" in
+    bsd*)       alias ls="ls -G" ;;
+    darwin*)    alias ls="ls -G" ;;
+    *)          alias ls="ls --color" ;;
+esac
 alias la="ls -A"
 alias l="ls -lhr"
 alias ll="ls -lah"
