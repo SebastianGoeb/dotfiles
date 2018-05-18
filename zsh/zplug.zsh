@@ -3,8 +3,8 @@
 #######################
 
 case "$OSTYPE" in
-  darwin*)  export ZPLUG_HOME="/usr/local/opt/zplug" ;;
-  *)        export ZPLUG_HOME="~/.zplug" ;;
+    darwin*)    export ZPLUG_HOME=/usr/local/opt/zplug ;;
+    *)          export ZPLUG_HOME=~/.zplug ;;
 esac
 
 if [[ -v ZPLUG_HOME ]]; then
