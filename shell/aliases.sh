@@ -23,3 +23,5 @@ alias gl="git log --graph --all --oneline --decorate"
 alias gf="git fetch"
 alias gpl="git pull"
 alias gpu="git push"
+alias gm="git merge"
+
