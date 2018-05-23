@@ -24,4 +24,5 @@ alias gf="git fetch"
 alias gpl="git pull"
 alias gpu="git push"
 alias gm="git merge"
+alias gb="git branch"
 
