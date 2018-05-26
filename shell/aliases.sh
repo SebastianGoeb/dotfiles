@@ -8,7 +8,7 @@ case "$OSTYPE" in
     *)          alias ls="ls --color" ;;
 esac
 alias la="ls -A"
-alias l="ls -lhr"
+alias l="ls -lh"
 alias ll="ls -lah"
 
 # git
