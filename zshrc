@@ -1,4 +1,5 @@
 # generic
+source ~/.shell/nvm.sh
 source ~/.shell/aliases.sh
 source ~/.shell/misc.sh
 
