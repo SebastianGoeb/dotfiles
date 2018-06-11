@@ -3,6 +3,7 @@ bindkey -e
 bindkey "^[[A" history-substring-search-up # up
 bindkey "^[[B" history-substring-search-down # down
 bindkey "^[[2~" overwrite-mode # ins
+bindkey -M menuselect "^[[Z" reverse-menu-complete # shift + tab
 
 # macOS
 bindkey "^[^[[D" backward-word # alt + left
