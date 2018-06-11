@@ -30,6 +30,7 @@ if [[ -v ZPLUG_HOME ]]; then
             zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
             # syntax highlighting for commands, load last (defer)
             zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
+            export HISTORY_SUBSTRING_SEARCH_FUZZY="true"
             # partial match history entries
             zplug "zsh-users/zsh-history-substring-search"
 
