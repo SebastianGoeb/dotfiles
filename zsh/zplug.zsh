@@ -53,3 +53,8 @@ if [[ -v ZPLUG_HOME ]]; then
 else
     echo "Unable to initialize zplug. \$ZPLUG_HOME not defined" >&2
 fi
+
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
+
