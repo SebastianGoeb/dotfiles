@@ -25,11 +25,12 @@ if [[ -v ZPLUG_HOME ]]; then
         if ( command -v zplug &> /dev/null ); then
             # credit: https://terriblecode.com/blog/zplug-from-a-former-oh-my-zsh-user/
             # async for zsh, used by pure
-            zplug "mafredri/zsh-async", from:github, defer:0
+            zplug "mafredri/zsh-async"
             # pure theme
-            zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+            zplug "sindresorhus/pure", use:pure.zsh, as:theme
+            # zplug "zsh-users/zsh-autosuggestions"
             # syntax highlighting for commands, load last (defer)
-            zplug "zsh-users/zsh-syntax-highlighting", from:github, defer:3
+            zplug "zsh-users/zsh-syntax-highlighting", defer:3
             export HISTORY_SUBSTRING_SEARCH_FUZZY="true"
             # partial match history entries
             zplug "zsh-users/zsh-history-substring-search"
@@ -53,8 +54,3 @@ if [[ -v ZPLUG_HOME ]]; then
 else
     echo "Unable to initialize zplug. \$ZPLUG_HOME not defined" >&2
 fi
-
-if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
-fi
-
