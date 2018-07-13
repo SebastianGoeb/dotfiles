@@ -26,3 +26,6 @@ alias gpl="git pull"
 alias gpu="git push"
 alias gm="git merge"
 alias gb="git branch"
+
+# kubernetes
+alias kc="kubectl"
