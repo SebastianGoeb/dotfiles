@@ -1,3 +1,5 @@
+# MUST be executed before some of the keybindings (keybindings.zsh)
+
 autoload -U compinit && compinit
 zmodload -i zsh/complist
 

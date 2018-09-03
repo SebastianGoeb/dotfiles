@@ -29,3 +29,6 @@ alias gb="git branch"
 
 # kubernetes
 alias kc="kubectl"
+
+# X Windows
+alias clip="xclip -selection clipboard"

@@ -7,10 +7,10 @@
     ~/.dotfiles: ''
     ~/.gitconfig:
     ~/.gitignore_global:
-    ~/.shell:
-    ~/.tmux.conf:
     ~/.vimrc:
-    ~/.zsh:
+    ~/.tmux.conf:
     ~/.zshrc:
+    ~/.zsh.d:
+    ~/.posix.d:
 # - shell:
     # any git commands have to run after linking ~/.gitconfig

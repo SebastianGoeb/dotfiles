@@ -1,3 +1,6 @@
+# MUST be executed before kubectl completion (completion.zsh)
+# zsh-syntax-highlighting says it must be imported after completions (compinit and zle -N), but it seems to work anyway???
+
 #######################
 # Zplug Configuration #
 #######################
