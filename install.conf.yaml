@@ -4,6 +4,7 @@
         relink: true
 - clean: ['~']
 - link:
+    ~/.config/conky/conky.conf: config/conky/conky.conf
     ~/.dotfiles: ''
     ~/.gitconfig:
     ~/.gitignore_global:
