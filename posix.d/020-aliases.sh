@@ -19,3 +19,7 @@ alias kc="kubectl"
 
 # X Windows
 alias clip="xclip -selection clipboard"
+
+# Gradle
+alias gr="gradle"
+alias gw="./gradlew"

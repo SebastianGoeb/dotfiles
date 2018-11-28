@@ -13,8 +13,8 @@ esac
 
 # Remove zplug from fpath, otherwise zplug env vars from parent zsh might break child zsh
 tmp=()
-for el in $fpath; do
-    ! [[ $el =~ 'zplug' ]] && tmp+=($el)
+for entry in $fpath; do
+    ! [[ $entry =~ 'zplug' ]] && tmp+=($entry)
 done
 export fpath=($tmp)
 unset tmp
@@ -37,6 +37,8 @@ if [[ -v ZPLUG_HOME ]]; then
             export HISTORY_SUBSTRING_SEARCH_FUZZY="true"
             # partial match history entries
             zplug "zsh-users/zsh-history-substring-search"
+            # gradle completion
+            zplug "gradle/gradle-completion"
 
             # install plugins if there are plugins that have not been installed
             if ! zplug check --verbose; then
