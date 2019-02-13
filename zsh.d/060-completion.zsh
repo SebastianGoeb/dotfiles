@@ -1,44 +1,18 @@
-# MUST be executed before some of the keybindings (keybindings.zsh)
+## MUST be executed before some of the keybindings (keybindings.zsh)
 
-autoload -U compinit && compinit
-zmodload -i zsh/complist
+# Keep directories and files separated
+zstyle ':completion:*' list-dirs-first true
 
+# zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+r:|[._-/]=** r:|=**' '+l:|=* r:|=*'
+# # Smart matching of dashed values, e.g. f-b matching foo-bar
+# zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*'
 
-# Use caching to make completion for commands such as dpkg and apt usable.
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path "${XDG_CACHE_HOME}/zsh/compcache"
-
-# Show completion descriptions
-zstyle ':completion:*' verbose yes
-
-# Make the list prompt friendly
-zstyle ':completion:*' list-prompt '%SAt %p: Hit TAB for more, or the character to insert%s'
-# Always show menu list
-export LISTMAX=10000
-
-# Make the selection prompt friendly when there are a lot of choices
-zstyle ':completion:*' select-prompt '%SScrolling active: current selection at %p%s'
-
-# Try regular completions, then ignored completions
 zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' matcher-list '' 'r:|?=** m:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}'
+zstyle ':completion:*' force-list always
+zstyle ':completion:*' menu yes select
+zstyle ':completion:*' verbose true
+zstyle :compinstall filename '/Users/sebastian/.zshrc'
 
-# Always show menu
-zstyle ':completion:*' menu select=1 _complete _ignored
-
-# zstyle ':completion:*' expand prefix suffix
-
-zstyle ':completion:*' insert-unambiguous true
-
-# Try exact match, then case-insensitive, then partial word
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' +'r:|[.,_-]=* r:|=* l:|=*'
-zstyle ':completion:*' original false
-zstyle ':completion:*' preserve-prefix '//[^/]##/'
-zstyle ':completion:*' use-compctl false
-
-if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
-fi
-
-if [ $commands[helm] ]; then
-    source <(helm completion zsh)
-fi
+autoload -Uz compinit && compinit
+zmodload -i zsh/complist

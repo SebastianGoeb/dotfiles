@@ -1,4 +1,3 @@
-
 ### Added by Zplugin's installer
 source "$HOME/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
@@ -7,6 +6,7 @@ autoload -Uz _zplugin
 
 # basic stuff
 zplugin load zdharma/history-search-multi-word
+zplugin light zsh-users/zsh-history-substring-search
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zdharma/fast-syntax-highlighting
 
@@ -23,33 +23,20 @@ zplugin ice pick"async.zsh" src"pure.zsh"; zplugin light sindresorhus/pure
 # not sure what this does
 # zplugin creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
-# The following lines were added by compinstall
+# portable
+for f in ~/.posix.d/*; do
+  source $f
+done
 
+# zsh-specific
+for f in ~/.zsh.d/*; do
+  source $f
+done
 
-# Keep directories and files separated
-zstyle ':completion:*' list-dirs-first true
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
 
-
-zstyle ':completion:*' completer _complete _ignored
-# zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+r:|[._-/]=** r:|=**' '+l:|=* r:|=*'
-zstyle ':completion:*' matcher-list '' 'r:|?=** m:{[:lower:][:upper:]-_}={[:upper:][:lower:]_-}'
-
-
-# # Smart matching of dashed values, e.g. f-b matching foo-bar
-# zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*'
-
-zstyle ':completion:*' force-list always
-zstyle ':completion:*' menu yes select
-zstyle ':completion:*' verbose true
-zstyle :compinstall filename '/Users/sebastian/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory autocd notify
-bindkey -e
-# End of lines configured by zsh-newuser-install
+if [ $commands[helm] ]; then
+    source <(helm completion zsh)
+fi

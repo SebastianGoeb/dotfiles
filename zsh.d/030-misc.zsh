@@ -1,2 +1,2 @@
 # enable implicit `cd`
-setopt autocd
+setopt autocd notify
