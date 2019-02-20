@@ -84,6 +84,7 @@ def register_dir(directory, interval, random):
 
     slideshow_uri = 'file://' + slideshow_path
     subprocess.run(['gsettings', 'set', 'org.gnome.desktop.background', 'picture-uri', slideshow_uri])
+    subprocess.run(['gsettings', 'set', 'org.gnome.desktop.screensaver', 'picture-uri', slideshow_uri])
 
 
 def run(file, interval, random):
