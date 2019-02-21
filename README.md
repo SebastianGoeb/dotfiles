@@ -3,6 +3,7 @@
 ## Prerequisites
 * git
 * zplugin
+* curl
 * nvm (apparently)
 
 ## Optional Dependencies (Highly Recommended)
