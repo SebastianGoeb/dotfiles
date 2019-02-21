@@ -1,4 +1,10 @@
+### Install zplugin if not found
+if [[ ! -f "$HOME/.zplugin/bin/zplugin.sh" ]]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+fi
+
 ### Added by Zplugin's installer
+
 source "$HOME/.zplugin/bin/zplugin.zsh"
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
