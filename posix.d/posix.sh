@@ -63,4 +63,4 @@ alias grb="git rebase"
 alias gnope="git checkout ."
 alias gwait="git reset HEAD"
 alias gundo="git reset --soft HEAD^"
-
+alias gprune="git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d"
