@@ -2,13 +2,35 @@
 
 set -e
 
-CONFIG="install.conf.yaml"
-DOTBOT_DIR="dotbot"
+function select_profile() {
+  DOTFILES_PROFILE_PATH="$HOME/.dotfiles_profile"
+  if [[ ! -f $DOTFILES_PROFILE_PATH ]]; then
+    if [[ $(read -n 1 -p "Use profile Personal/Work [P/w]") == "w" ]]; then
+      echo ""
+      echo "using work profile"
+      echo "work" > $DOTFILES_PROFILE_PATH
+    else
+      echo ""
+      echo "using personal profile"
+      echo "personal" > $DOTFILES_PROFILE_PATH
+    fi
+  fi
 
+  DOTFILES_PROFILE=$(cat $DOTFILES_PROFILE_PATH | grep -E "(work|personal)")
+  CONFIG="install.conf.${DOTFILES_PROFILE}.yaml"
+  echo "profile: ${DOTFILES_PROFILE} (${CONFIG})"
+}
+
+echo "installing dotbot..."
+DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
+echo "installing dotfiles..."
+select_profile
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+echo "done"

@@ -1,0 +1,17 @@
+- defaults:
+    link:
+        create: true
+        relink: true
+- clean: ['~']
+- link:
+    ~/.config/conky/conky.conf: config/conky/conky.conf
+    ~/.dotfiles: ''
+    ~/.gitconfig: gitconfig.personal
+    ~/.gitignore_global:
+    ~/.vimrc:
+    ~/.tmux.conf:
+    ~/.zshrc:
+    ~/.zsh.d:
+    ~/.posix.d:
+# - shell:
+    # any git commands have to run after linking ~/.gitconfig

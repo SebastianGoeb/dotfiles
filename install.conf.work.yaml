@@ -6,7 +6,7 @@
 - link:
     ~/.config/conky/conky.conf: config/conky/conky.conf
     ~/.dotfiles: ''
-    ~/.gitconfig:
+    ~/.gitconfig: gitconfig.work
     ~/.gitignore_global:
     ~/.vimrc:
     ~/.tmux.conf:
