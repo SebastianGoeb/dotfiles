@@ -1,3 +1,8 @@
+### If macos, init path
+if [[ -f /usr/libexec/path_helper ]]; then
+  eval `/usr/libexec/path_helper -s`
+fi
+
 ### Install zinit if not found
 if [[ ! -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
