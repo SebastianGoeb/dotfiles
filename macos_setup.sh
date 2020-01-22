@@ -7,6 +7,7 @@ formulae=(
   jq
   helm
   kubectx
+  nvm
   ripgrep
   watch
   zsh
