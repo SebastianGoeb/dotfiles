@@ -13,7 +13,7 @@
     ~/.zshrc:
     ~/.zsh.d:
     ~/.posix.d:
-- shell:
-    - command: ./wallpapers.sh
-      stdout: true
+# - shell:
+#     - command: ./wallpapers.sh
+#       stdout: true
     # any git commands have to run after linking ~/.gitconfig
