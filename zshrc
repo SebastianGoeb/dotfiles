@@ -64,3 +64,9 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit installer's chunk
+
+export FZF_DEFAULT_OPTS="--height=50% --preview=\"cat {}\" --bind='ctrl-p:toggle-preview'"
+export FZF_DEFAULT_COMMAND="rg --files 2>/dev/null"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
