@@ -18,4 +18,4 @@ alias gnope="git checkout ."
 alias gwait="git reset HEAD"
 alias gundo="git reset --soft HEAD^"
 
-alias gcheat="vim ~/.posix.d/021-git-aliases.sh"
+alias gcheat="less ~/.posix.d/021-git-aliases.sh"
