@@ -14,8 +14,6 @@
     ~/.zsh.d:
     ~/.posix.d:
 - shell:
-    - rm -rf ~/.wallpapers
-    - cp -R wallpapers ~/.wallpapers
     - command: ./wallpapers.sh
       stdout: true
     # any git commands have to run after linking ~/.gitconfig
