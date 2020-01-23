@@ -2,10 +2,13 @@
 
 # TODO check for updates regularly in background
 
+xcode-select --install
+
 formulae=(
   fzf
-  jq
+  git
   helm
+  jq
   kubectx
   nvm
   ripgrep
