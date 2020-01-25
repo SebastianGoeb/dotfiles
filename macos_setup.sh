@@ -10,17 +10,24 @@ formulae=(
   helm@2
   iproute2mac
   jq
+  go
+  helm
   kubectx
   maven
   nmap
   nvm
   openvpn
   ripgrep
+  tree
+  vifm
   watch
   zsh
 )
 
 brew install "${formulae[@]}"
+
+# finish fzf setup
+[ -f ~/.fzf.zsh ] || "$(brew --prefix)/opt/fzf/install"
 
 casks=(
   atom
