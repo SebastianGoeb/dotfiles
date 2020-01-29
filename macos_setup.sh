@@ -7,10 +7,13 @@ xcode-select --install
 formulae=(
   fzf
   git
-  helm
+  helm@2
+  iproute2mac
   jq
   kubectx
+  nmap
   nvm
+  openvpn
   ripgrep
   watch
   zsh
