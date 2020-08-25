@@ -11,6 +11,7 @@ formulae=(
   iproute2mac
   jq
   kubectx
+  maven
   nmap
   nvm
   openvpn
