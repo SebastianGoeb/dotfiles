@@ -10,7 +10,7 @@
   default = simple
 [user]
   name = Sebastian Göb
-  email = sebastiancgoeb@gmail.com
+	email = sebastian.goeb@detim.de
 
 # Allow local customizations in the .gitconfig_local file
 [include]
