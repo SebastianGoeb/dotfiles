@@ -1,8 +1,8 @@
-= Subkeys
+== Subkeys
 
 Source: https://wiki.debian.org/Subkeys
 
-== Make a backup
+=== Make a backup
 
 [source,shell script]
 ----
@@ -10,7 +10,7 @@ umask 077
 tar -cf $HOME/gnupg-backup.tar -C $HOME .gnupg
 ----
 
-== Create a new subkey for signing
+=== Create a new subkey for signing
 
 [source,shell script]
 ----
@@ -23,7 +23,7 @@ gpg> addkey
 gpg> save
 ----
 
-== Remove master key from machine
+=== Remove master key from machine
 
 [source,shell script]
 ----
@@ -42,7 +42,7 @@ gpg -K
 gpg --edit-key $MASTER_KEY_ID passwd
 ----
 
-== Revoke Subkey
+=== Revoke Subkey
 
 [source,shell script]
 ----

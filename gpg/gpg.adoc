@@ -1,8 +1,8 @@
-= GPG Settings
+== GPG Settings
 
 Source: https://keyring.debian.org/creating-key.html
 
-== Fix Algorithm Preferences
+=== Fix Algorithm Preferences
 
 Prefer SHA2 over SHA1
 

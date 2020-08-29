@@ -1,7 +1,9 @@
+:toc:
+
 = GPG Settings and Key Management
 
-* link:gpg.adoc[GPG Settings]
+include::gpg.adoc[]
 
-* link:masterkey.adoc[Master Key Management]
+include::masterkey.adoc[]
 
-* link:subkey.adoc[Subkey Management]
+include::subkey.adoc[]

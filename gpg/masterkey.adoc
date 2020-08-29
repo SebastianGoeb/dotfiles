@@ -1,8 +1,8 @@
-= Master Key
+== Master Key
 
 Source: https://keyring.debian.org/creating-key.html
 
-== Create Master Key
+=== Create Master Key
 
 .Key Parameters
 [source,shell script]
