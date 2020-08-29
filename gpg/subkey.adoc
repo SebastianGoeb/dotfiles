@@ -2,44 +2,54 @@
 
 Source: https://wiki.debian.org/Subkeys
 
-=== Make a backup
+=== Make a Backup
 
 [source,shell script]
 ----
 umask 077
-tar -cf $HOME/gnupg-backup.tar -C $HOME .gnupg
+tar -cf $USB_PATH/gnupg-backup.tar -C $HOME .gnupg
 ----
 
-=== Create a new subkey for signing
+=== Manage Subkeys
 
+.Create Subkeys
 [source,shell script]
 ----
 gpg --list-keys $(whoami)
 gpg --edit-key $MASTER_KEY_ID
-# RSA (sign only), 4096 bit, 1m expiry
-gpg> addkey
-# RSA (encrypt only), 4096 bits, 1m expiry
-gpg> addkey
+gpg> addkey # sign only
+gpg> addkey # encrypt only
 gpg> save
 ----
 
-=== Remove master key from machine
+NOTE: prefer 4096 bit, 1m expiry
 
+.Back up Master Key
 [source,shell script]
 ----
-# TODO cp -r? rsync? umask 077?
+# TODO cp -r? rsync? umask 077? tar?
 cp $HOME/.gnupg $USB_PATH
+----
 
-# ---- gpg 2.1 and later ----
+.Remove Master Key from Machine Copy
+[source,shell script]
+----
 gpg --with-keygrip --list-key $MASTER_KEY_ID
 rm $HOME/.gnupg/private-keys-v1.d/$MASTER_KEYGRIP.key
-# only in case of migration from older format
-rm $HOME/.gnupg/secring.gpg
-# verify master key lists sec# not sec
+rm $HOME/.gnupg/secring.gpg # only in case of migration from older format
+----
+
+[NOTE]
+====
+GPG 2.1 and later.
+For earlier versions check Debian wiki.
+====
+
+.Verify Master Key was Removed
+[source,shell script]
+----
 # TODO is this the same as gpg --list-secret-keys?
-gpg -K
-# change passphrase on subkeys, to protect master key in case subkey passphrase is compromised
-gpg --edit-key $MASTER_KEY_ID passwd
+gpg -K # should list master key as sec# not sec
 ----
 
 === Revoke Subkey
