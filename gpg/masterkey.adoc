@@ -1,0 +1,23 @@
+= Master Key
+
+Source: https://keyring.debian.org/creating-key.html
+
+== Create Master Key
+
+.Key Parameters
+[source,shell script]
+----
+include::masterkey-parameters.txt[]
+----
+
+.Create Key Automatically
+[source,shell script]
+----
+gpg --batch --full-generate-key masterkey-parameters.txt
+----
+
+.Create Key by Hand
+[source,shell script]
+----
+gpg --expert --full-generate-key
+----

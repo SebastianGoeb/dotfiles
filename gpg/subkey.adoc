@@ -43,6 +43,7 @@ gpg --edit-key $MASTER_KEY_ID passwd
 ----
 
 == Revoke Subkey
+
 [source,shell script]
 ----
 export GNUPGHOME=$USB_PATH

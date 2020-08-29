@@ -1,0 +1,19 @@
+= GPG Settings
+
+Source: https://keyring.debian.org/creating-key.html
+
+== Fix Algorithm Preferences
+
+Prefer SHA2 over SHA1
+
+.GPG Preferences
+[source,text]
+----
+include::gpg-preferences.txt[]
+----
+
+.Append Preferences to `gpg.conf`
+[source,shell script]
+----
+cat gpg-preferences.txt >>$HOME/.gnupg/gpg.conf
+----
