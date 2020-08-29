@@ -7,3 +7,6 @@ include::gpg.adoc[]
 include::masterkey.adoc[]
 
 include::subkey.adoc[]
+
+== TODO Key Rotation
+https://danielpecos.com/2019/03/30/how-to-rotate-your-openpgp-gnupg-keys/
