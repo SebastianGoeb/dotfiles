@@ -1,6 +1,6 @@
-:toc:
-
 = GPG Settings and Key Management
+:toc:
+:source-highlighter: highlightjs
 
 include::gpg.adoc[]
 
