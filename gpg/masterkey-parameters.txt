@@ -2,7 +2,7 @@
 Key-Type: RSA
 Key-Length: 4096
 
-# master key should be cert-only
+# master key should be certify-only
 Key-Usage: cert
 
 Name-Real: Sebastian Göb

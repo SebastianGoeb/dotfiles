@@ -5,7 +5,6 @@ Source: https://keyring.debian.org/creating-key.html
 === Create Master Key
 
 .Key Parameters
-[source,shell script]
 ----
 include::masterkey-parameters.txt[]
 ----
@@ -21,3 +20,4 @@ gpg --batch --full-generate-key masterkey-parameters.txt
 ----
 gpg --expert --full-generate-key
 ----
+NOTE: select `RSA (set your own capabilities)` to create certify-only key
