@@ -1,0 +1,30 @@
+== Backup
+
+Source: https://wiki.debian.org/Subkeys
+
+.Back up Master Key
+[source,shell script]
+----
+umask 077
+tar -cf $USB_PATH/gnupg-backup-<timestamp>.tar -C $HOME .gnupg
+----
+
+.Remove Master Key from Machine Copy
+[source,shell script]
+----
+gpg --with-keygrip --list-key $MASTER_KEY_ID
+rm $HOME/.gnupg/private-keys-v1.d/$MASTER_KEYGRIP.key
+rm $HOME/.gnupg/secring.gpg # only in case of migration from older format
+----
+
+[NOTE]
+====
+GPG 2.1 and later.
+For earlier versions check Debian wiki.
+====
+
+.Verify Master Key was Removed
+[source,shell script]
+----
+gpg --list-secret-keys # should list master key as sec# not sec
+----

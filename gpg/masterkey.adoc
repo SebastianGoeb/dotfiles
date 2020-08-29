@@ -2,8 +2,6 @@
 
 Source: https://keyring.debian.org/creating-key.html
 
-=== Create Master Key
-
 .Key Parameters
 ----
 include::masterkey-parameters.txt[]

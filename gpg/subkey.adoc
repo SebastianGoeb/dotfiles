@@ -2,16 +2,6 @@
 
 Source: https://wiki.debian.org/Subkeys
 
-=== Make a Backup
-
-[source,shell script]
-----
-umask 077
-tar -cf $USB_PATH/gnupg-backup.tar -C $HOME .gnupg
-----
-
-=== Manage Subkeys
-
 .Create Subkeys
 [source,shell script]
 ----
@@ -24,36 +14,7 @@ gpg> save
 
 NOTE: prefer 4096 bit, 1m expiry
 
-.Back up Master Key
-[source,shell script]
-----
-# TODO cp -r? rsync? umask 077? tar?
-cp $HOME/.gnupg $USB_PATH
-----
-
-.Remove Master Key from Machine Copy
-[source,shell script]
-----
-gpg --with-keygrip --list-key $MASTER_KEY_ID
-rm $HOME/.gnupg/private-keys-v1.d/$MASTER_KEYGRIP.key
-rm $HOME/.gnupg/secring.gpg # only in case of migration from older format
-----
-
-[NOTE]
-====
-GPG 2.1 and later.
-For earlier versions check Debian wiki.
-====
-
-.Verify Master Key was Removed
-[source,shell script]
-----
-# TODO is this the same as gpg --list-secret-keys?
-gpg -K # should list master key as sec# not sec
-----
-
-=== Revoke Subkey
-
+.Revoke Subkey
 [source,shell script]
 ----
 export GNUPGHOME=$USB_PATH
