@@ -13,8 +13,9 @@ tar -cf $USB_PATH/gnupg-backup-<timestamp>.tar -C $HOME .gnupg
 [source,shell script]
 ----
 gpg --with-keygrip --list-key $MASTER_KEY_ID
-rm $HOME/.gnupg/private-keys-v1.d/$MASTER_KEYGRIP.key
-rm $HOME/.gnupg/secring.gpg # only in case of migration from older format
+# rm -P shreds files on mac os, use shred on linux
+rm -P $HOME/.gnupg/private-keys-v1.d/$MASTER_KEYGRIP.key
+rm -P $HOME/.gnupg/secring.gpg # only in case of migration from older format
 ----
 
 [NOTE]
