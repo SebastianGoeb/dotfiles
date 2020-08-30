@@ -29,3 +29,9 @@ For earlier versions check Debian wiki.
 ----
 gpg --list-secret-keys # should list master key as sec# not sec
 ----
+
+.Change Passphrase
+----
+gpg --edit-key $MASTER_KEY_ID passwd
+----
+IMPORTANT: this protects master key in case subkey is compromised
