@@ -35,12 +35,12 @@ zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
 # zinit creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
 
 # portable
-for f in ~/.posix.d/*; do
+for f in ~/.posix/*; do
   source $f
 done
 
 # zsh-specific
-for f in ~/.zsh.d/*; do
+for f in ~/.zsh/*; do
   source $f
 done
 
