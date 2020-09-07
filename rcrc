@@ -1,1 +1,2 @@
-EXCLUDES="install* config gpg wallpapers temp"
+DOTFILES_DIRS="$HOME/dev/personal/dotfiles"
+EXCLUDES="*.adoc *.md install* config dotbot gpg wallpapers temp"
