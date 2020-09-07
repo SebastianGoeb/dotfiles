@@ -2,14 +2,5 @@
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null && pwd)"
 
-# bootstrap rcm
-# shellcheck disable=SC2068
-ln -v -s $@ "$DIR"/rcrc "$HOME"/.rcrc
-
-# bootstrap dotfiles
-# shellcheck disable=SC2068
-ln -v -s $@ "$DIR" "$HOME"/.dotfiles
-
-# bootstrap zsh
-# shellcheck disable=SC2068
-ln -v -s $@ "$DIR"/zshrc "$HOME"/.zshrc
+# need to give non-standard rcrc location for initial install
+RCRC=$DIR/rcrc rcup -v
