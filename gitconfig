@@ -1,8 +1,8 @@
 [color]
   ui = auto
 [core]
-  excludesfile = ~/.gitignore_global
-  safecrlf = false
+  excludesfile = ~/.gitignore
+  safecrlf = warn
   autocrlf = input
 [pull]
   ff = only
@@ -10,11 +10,7 @@
   default = simple
 [user]
   name = Sebastian Göb
-	email = sebastian.goeb@detim.de
-
-# Allow local customizations in the .gitconfig_local file
-[include]
-  path = ~/.gitconfig_local
+  email = sebastian.goeb@detim.de
 [filter "lfs"]
   process = git-lfs filter-process
   required = true
