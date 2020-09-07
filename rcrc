@@ -1,0 +1,2 @@
+DOTFILES_DIRS="$HOME/dev/personal/dotfiles"
+EXCLUDES="*.adoc *.md install* config dotbot gpg wallpapers temp"

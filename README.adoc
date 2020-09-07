@@ -1,0 +1,28 @@
+= Dotfiles
+
+== Installation
+
+=== MacOS with Homebrew
+
+Install Homebrew from https://brew.sh
+
+Clone this repository
+
+[source,shell script]
+----
+git clone https://github.com/sebastianGoeb/dotfiles /path/to/git_repos/dotfiles
+----
+
+Install rcm
+
+[source,shell script]
+----
+brew install rcm
+----
+
+Bootstrap dotfiles
+
+[source,shell script]
+----
+./install
+----
