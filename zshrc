@@ -28,26 +28,23 @@ if [[ ! -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
 
-debug 'Added by zinit installer'
+debug 'load zinit'
 source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-debug 'End of zinit installer chunk'
 
-debug 'basic plugins'
+debug 'zinit basic plugins'
 zinit load zdharma/history-search-multi-word
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
 
-debug 'completion'
+debug 'zinit completion'
 zinit light zsh-users/zsh-completions
 zinit light gradle/gradle-completion
 
-# debug 'fzf (disabled)'
+# debug 'zinit fzf (disabled)'
 # zinit ice from"gh-r" as"program"; zinit load junegunn/fzf-bin
 
-debug 'theme'
+debug 'zinit theme'
 zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
 
 # not sure what this does
@@ -75,18 +72,9 @@ if [ $commands[helm] ]; then
     source <(helm completion zsh)
 fi
 
-debug 'Added by zinit installer'
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
-    command mkdir -p $HOME/.zinit
-    command git clone https://github.com/zdharma/zinit $HOME/.zinit/bin && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%F" || \
-        print -P "%F{160}▓▒░ The clone has failed.%F"
-fi
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-debug 'End of zinit installer chunk'
+# debug 'zinit completions (need to do this manually, since we sourced zinit.zsh after calling compinit)'
+# autoload -Uz _zinit
+# (( ${+_comps} )) && _comps[zinit]=_zinit
 
 debug 'fzf'
 . "$HOME"/.fzf/fzf-options.sh
