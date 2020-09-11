@@ -55,12 +55,14 @@ zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
 
 debug 'portable scripts'
 for f in ~/.posix/*; do
-  source $f
+  debug "sourcing $f"
+  . $f
 done
 
 debug 'zsh scripts'
 for f in ~/.zsh/*; do
-  source $f
+  debug "sourcing $f"
+  . $f
 done
 
 debug 'kubectl completions'
