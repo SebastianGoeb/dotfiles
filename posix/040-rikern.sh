@@ -9,7 +9,7 @@ else
     local kafka_command=$1
     shift
 
-    if [[ $kafka_command =~ .*avro.* ]]; then
+    if [[ $kafka_command =~ avro ]]; then
       local derived_confluent_image="confluentinc.bwp/cp-schema-registry"
     else
       local derived_confluent_image="confluentinc.bwp/cp-kafka"
@@ -30,14 +30,14 @@ else
     local extra_args=()
 
     # connect to schema registry if working with avro
-    if [[ $kafka_command =~ .*avro.* ]]; then
+    if [[ $kafka_command =~ avro ]]; then
       extra_args+=(--property "schema.registry.url=https://schemaregistry.${namespace}.rikern-ingress-${cluster}.reisendeninfo.aws.db.de:8081")
     fi
 
     # use correct config option based on type of kafka command
-    if [[ $kafka_command =~ .*consumer.* ]]; then
+    if [[ $kafka_command =~ consumer$ ]]; then
       extra_args+=(--consumer.config "/config.properties")
-    elif [[ $kafka_command =~ .*producer.* ]]; then
+    elif [[ $kafka_command =~ producer$ ]]; then
       extra_args+=(--producer.config "/config.properties")
     else
       extra_args+=(--command-config "/config.properties")
