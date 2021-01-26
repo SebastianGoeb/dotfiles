@@ -1,3 +1,7 @@
+if [ "${BASH_VERSINFO:-0}" -lt 4 ]; then
+  echo "requires bash >= 4 for array support"
+fi
+
 # Kafka Tools Aliases
 function _run_in_sherlock_container() {
   local confluent_version=${CONFLUENT_VERSION:-"5.3.3"}
