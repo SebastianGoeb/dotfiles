@@ -17,11 +17,11 @@ else
     local confluent_image=${CONFLUENT_IMAGE:-$derived_confluent_image}
 
     local kubectl_namespace
-    kubectl_namespace=$(kubectl config view --minify | yq -j r - | jq -r '.contexts[0].context.namespace // "default"')
+    kubectl_namespace=$(kubectl config view --minify | yq -j e - | jq -r '.contexts[0].context.namespace // "default"')
     local namespace="${NAMESPACE:-$kubectl_namespace}"
 
     local kubectl_cluster
-    kubectl_cluster=$(kubectl config view --minify | yq -j r - | jq -r '.contexts[0].context.cluster' |
+    kubectl_cluster=$(kubectl config view --minify | yq -j e - | jq -r '.contexts[0].context.cluster' |
       sed -E 's/(.+)-(.+)-(.+)/\3-\2-\1/g' |
       sed 's/ridi/ridienste/g' |
       sed 's/riplf/riplattform/g')
