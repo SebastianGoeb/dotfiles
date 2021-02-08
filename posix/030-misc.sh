@@ -8,6 +8,9 @@ export EDITOR="vim"
 export LANG="en_GB.UTF-8"
 export LC_ALL="en_GB.UTF-8"
 
+# Homebrew sbin
+export PATH="/usr/local/sbin:$PATH"
+
 # User Binaries
 export PATH="$PATH:$HOME/.bin"
 
