@@ -3,7 +3,7 @@ if [[ "${BASH_VERSINFO:-0}" -lt 4 ]] && [[ -z "$ZSH_VERSION" ]]; then
 else
   # Kafka Tools Aliases
   function _run_in_sherlock_container() {
-    local confluent_version=${CONFLUENT_VERSION:-"5.3.3"}
+    local confluent_version=${CONFLUENT_VERSION:-"5.5.2"}
 
     # use first positional argument as kafka command, and rest as arguments
     local kafka_command=$1
