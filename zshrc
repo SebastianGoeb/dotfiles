@@ -1,3 +1,17 @@
+# =============================
+# POWERLEVEL10K INSTANT PROMPT
+# =============================
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# =============================
+# LOGGING
+# =============================
 
 function iso_date() {
   # https://stackoverflow.com/a/7216394/916223
@@ -18,10 +32,18 @@ function error() {
   (( log_level <= 4 )) && printf '%s ERROR %s\n' $(iso_date) $1
 }
 
+# =============================
+# MACOS
+# =============================
+
 debug 'If macos, init path'
 if [[ -f /usr/libexec/path_helper ]]; then
   eval `/usr/libexec/path_helper -s`
 fi
+
+# =============================
+# ZINIT
+# =============================
 
 debug 'Install zinit if not found'
 if [[ ! -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
@@ -30,6 +52,10 @@ fi
 
 debug 'load zinit'
 source "$HOME/.zinit/bin/zinit.zsh"
+
+# =============================
+# PLUGINS
+# =============================
 
 debug 'zinit basic plugins'
 zinit load zdharma/history-search-multi-word
@@ -41,14 +67,17 @@ debug 'zinit completion'
 zinit light zsh-users/zsh-completions
 zinit light gradle/gradle-completion
 
-# debug 'zinit fzf (disabled)'
-# zinit ice from"gh-r" as"program"; zinit load junegunn/fzf-bin
+# =============================
+# THEME
+# =============================
 
 debug 'zinit theme'
-zinit ice pick"async.zsh" src"pure.zsh"; zinit light sindresorhus/pure
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
 
-# not sure what this does
-# zinit creinstall %HOME/my_completions  # Handle completions without loading any plugin, see "clist" command
+# =============================
+# CUSTOM SCRIPTS
+# =============================
 
 debug 'portable scripts'
 for f in ~/.posix/*; do
@@ -61,6 +90,10 @@ for f in ~/.zsh/*; do
   debug "sourcing $f"
   . $f
 done
+
+# =============================
+# MORE COMPLETIONS
+# =============================
 
 debug 'kubectl completions'
 if [ $commands[kubectl] ]; then
@@ -76,6 +109,17 @@ fi
 # autoload -Uz _zinit
 # (( ${+_comps} )) && _comps[zinit]=_zinit
 
+# =============================
+# FZF
+# =============================
+
 debug 'fzf'
 . "$HOME"/.fzf/fzf-options.sh
 . "$HOME"/.fzf/fzf.zsh
+
+# =============================
+# POWERLEVEL10K
+# =============================
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
