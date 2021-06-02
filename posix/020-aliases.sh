@@ -12,7 +12,7 @@ alias l="ls -lh"
 alias ll="ls -lah"
 
 # docker
-alias doco="docker-compose"
+alias doco="docker compose"
 
 # kubernetes
 alias kc="kubectl"
