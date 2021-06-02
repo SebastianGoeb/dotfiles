@@ -44,3 +44,7 @@ alias grb="git rebase"
 alias gnope="git checkout ."
 alias gwait="git reset HEAD"
 alias gundo="git reset --soft HEAD^"
+
+# kubectx
+alias kcx="kubectx"
+alias kns="kubens"
