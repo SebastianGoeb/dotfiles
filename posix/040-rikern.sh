@@ -86,3 +86,27 @@ else
     alias "$cp_kafka_tool"="_run_in_sherlock_container $cp_kafka_tool"
   done
 fi
+
+function createChart() {
+  # don't leak GNU tools
+  local localPath
+  localPath="$PATH"
+  localPath="/usr/local/opt/gnu-sed/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gnu-ls/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gnu-indent/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/coreutils/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gnu-indent/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gnu-tar/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/ed/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/grep/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gnu-sed/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gawk/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/make/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gnu-time/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/findutils/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gnu-which/libexec/gnubin:$localPath"
+  localPath="/usr/local/opt/gnu-getopt/bin:$localPath"
+  localPath="/usr/local/opt/yq@3/bin:$localPath"
+
+  curl -Ls 'https://nexus.reisendeninfo.aws.db.de/nexus/service/local/artifact/maven/redirect?r=rikern-releases&g=de.db.ri&a=createChart&v=LATEST&e=sh' | env PATH="$localPath" bash -s -- "$@"
+}
