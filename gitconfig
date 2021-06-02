@@ -10,7 +10,7 @@
   default = simple
 [user]
   name = Sebastian Göb
-  email = sebastian.goeb@detim.de
+  email = sebastian.goeb@main-method.com
 [filter "lfs"]
   process = git-lfs filter-process
   required = true
