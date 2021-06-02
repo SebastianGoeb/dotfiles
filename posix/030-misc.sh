@@ -19,3 +19,5 @@ stopwatch() {
         echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";
     done
 }
+
+alias prepend_timestamp="while IFS= read -r line; do printf '[%s] %s\\n' \"\$(date '+%Y-%m-%d %H:%M:%S')\" \"\$line\"; done"
