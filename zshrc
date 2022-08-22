@@ -117,13 +117,12 @@ fi
 # autoload -Uz _zinit
 # (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# =============================
-# FZF
-# =============================
-
 debug 'fzf'
 source "$HOME"/.fzf/fzf-options.sh
 source "$HOME"/.fzf/fzf.zsh
 
+debug 'direnv completions'
 eval "$(direnv hook zsh)"
+
+debug 'nodenv completions'
 eval "$(nodenv init -)"
