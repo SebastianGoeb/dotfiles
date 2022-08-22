@@ -26,3 +26,7 @@ Bootstrap dotfiles
 ----
 ./install
 ----
+
+=== To-Do
+* replace zinit with antibody + zsh-defer?
+
