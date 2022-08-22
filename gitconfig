@@ -16,3 +16,5 @@
   required = true
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
+[includeIf "gitdir:~/dev/main-method/"]
+    path = ~/dev/main-method/.gitconfig_include
