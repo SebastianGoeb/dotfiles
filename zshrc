@@ -9,6 +9,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+
+# =============================
+# POWERLEVEL10K
+# =============================
+# TODO does this need to go at the bottom? used to be at the bottom...
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # =============================
 # LOGGING
 # =============================
@@ -114,12 +122,5 @@ fi
 # =============================
 
 debug 'fzf'
-. "$HOME"/.fzf/fzf-options.sh
-. "$HOME"/.fzf/fzf.zsh
-
-# =============================
-# POWERLEVEL10K
-# =============================
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source "$HOME"/.fzf/fzf-options.sh
+source "$HOME"/.fzf/fzf.zsh
