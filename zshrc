@@ -124,3 +124,5 @@ fi
 debug 'fzf'
 source "$HOME"/.fzf/fzf-options.sh
 source "$HOME"/.fzf/fzf.zsh
+
+eval "$(direnv hook zsh)"
