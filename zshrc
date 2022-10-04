@@ -53,13 +53,15 @@ fi
 # ZINIT
 # =============================
 
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
 debug 'Install zinit if not found'
-if [[ ! -f "$HOME/.zinit/bin/zinit.zsh" ]]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+if [[ ! -f "$ZINIT_HOME/zinit.zsh" ]]; then
+  bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 fi
 
 debug 'load zinit'
-source "$HOME/.zinit/bin/zinit.zsh"
+source "$ZINIT_HOME/zinit.zsh"
 
 # =============================
 # PLUGINS
@@ -125,4 +127,4 @@ debug 'direnv completions'
 eval "$(direnv hook zsh)"
 
 debug 'nodenv completions'
-eval "$(nodenv init -)"
+eval "$(nodenv init -)" # End of Zinit's installer chunk
