@@ -15,4 +15,9 @@ zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/Users/sebastian/.zshrc'
 
 autoload -Uz compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
 zmodload -i zsh/complist
+
+if [ $commands[az] ]; then
+    source /usr/local/etc/bash_completion.d
+fi
