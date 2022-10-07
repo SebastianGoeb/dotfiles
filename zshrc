@@ -132,3 +132,7 @@ eval "$(nodenv init -)" # End of Zinit's installer chunk
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/sebastian/.sdkman"
 [[ -s "/Users/sebastian/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/sebastian/.sdkman/bin/sdkman-init.sh"
+
+if [ $commands[ng] ]; then
+    source <(ng completion script)
+fi
