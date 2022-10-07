@@ -8,15 +8,14 @@
   ff = only
 [push]
   default = simple
-[user]
-  name = Sebastian Göb
-  email = sebastian.goeb@main-method.com
 [filter "lfs"]
   process = git-lfs filter-process
   required = true
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
-[includeIf "gitdir:~/dev/main-method/"]
-    path = ~/dev/main-method/.gitconfig_include
 [includeIf "gitdir:~/dev/personal/"]
     path = ~/.gitconfig.personal
+[includeIf "gitdir:~/dev/main-method/"]
+    path = ~/.gitconfig.main-method
+[includeIf "gitdir:~/dev/dvag/"]
+    path = ~/.gitconfig.dvag
