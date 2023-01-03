@@ -4,6 +4,7 @@
   excludesfile = ~/.gitignore
   safecrlf = warn
   autocrlf = input
+	attributesfile = ~/.gitattributes
 [pull]
   ff = only
 [push]
@@ -15,6 +16,8 @@
   smudge = git-lfs smudge -- %f
 [includeIf "gitdir:~/dev/personal/"]
     path = ~/.gitconfig.personal
+[includeIf "gitdir:~/dev/github/"]
+    path = ~/.gitconfig.github
 [includeIf "gitdir:~/dev/main-method/"]
     path = ~/.gitconfig.main-method
 [includeIf "gitdir:~/dev/dvag/"]
