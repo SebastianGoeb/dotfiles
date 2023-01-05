@@ -14,5 +14,9 @@ ehthumbs.db
 Thumbs.db
 
 # JetBrains
-.idea
+.idea/*
 *.iml
+
+# do allow code style and run configurations to potentially be committed
+!.idea/codeStyles
+!.idea/runConfigurations
