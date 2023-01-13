@@ -44,6 +44,8 @@ alias grb="git rebase"
 alias gnope="git checkout ."
 alias gwait="git reset HEAD"
 alias gundo="git reset --soft HEAD^"
+# source: https://stackoverflow.com/a/33548037
+alias grmgone="git fetch -p && for branch in \$(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '\$2 == \"[gone]\" {sub(\"refs/heads/\", \"\", \$1); print \$1}'); do git branch -D \$branch; done"
 
 # kubectx
 alias kcx="kubectx"
