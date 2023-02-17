@@ -1,103 +1,89 @@
-# =============================
-# LOGGING
-# =============================
-
-function iso_date() {
-  perl -e '
-    use Time::HiRes qw( gettimeofday );
-    use POSIX qw( strftime );
-    my ($sec, $usec) = gettimeofday();
-    printf( "%s.%03d", strftime( "%Y-%m-%d %H:%M:%S", localtime $sec ), $usec/1000);
-  '
-}
-
 function debug() {
-  (( log_level <= 1 )) && printf '%s DEBUG %s\n' "$(iso_date)" $1
+  # echo "$(gdate "+%T.%6N") $1"
 }
-function info() {
-  (( log_level <= 2 )) && printf '%s INFO  %s\n' "$(iso_date)" $1
-}
-function warn() {
-  (( log_level <= 3 )) && printf '%s WARN  %s\n' "$(iso_date)" $1
-}
-function error() {
-  (( log_level <= 4 )) && printf '%s ERROR %s\n' "$(iso_date)" $1
-}
-
-log_level=2
-
-# =============================
-# POWERLEVEL10K INSTANT PROMPT
-# =============================
 
 debug 'powerlevel10k instant prompt'
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
+# should be as early as possible, but before anything that uses stdin/stdout
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
-# =============================
-# POWERLEVEL10K
-# =============================
-
-debug 'powerlevel10k'
-
-# TODO does this need to go at the bottom? used to be at the bottom...
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# =============================
-# MACOS
-# =============================
-
-debug 'if macos, init path'
 if [[ -f /usr/libexec/path_helper ]]; then
+  debug 'if macos, init path'
   eval `/usr/libexec/path_helper -s`
 fi
 
 # =============================
-# ZINIT
+# ZINIT CHEAT SHEET (you WILL forget what the commands mean!)
+# zinit ice -> sets modifiers for the next command
+# zinit load -> loads a plugin WITH reporting/investigating
+# zinit light -> loads a plugin WITHOUT reporting/investigating
+# zinit snippet -> loads a local or remote script (not a github repo)
+# zinit ice wait["1"]; zinit light ... -> loads plugin asynchronously via ZLE, optionally with a delay
+# zinit ice lucid -> quiet mode
+# zinit wait lucid for A B light-mode C -> shorthand for `ice + load`, applies modifiers `wait, lucid` to plugins `A, B` and `wait, lucid, light-mode` to plugin `C`
+# zinit times -a -> report plugin loading moments and times
 # =============================
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-debug 'Install zinit if not found'
 if [[ ! -f "$ZINIT_HOME/zinit.zsh" ]]; then
+  debug 'installing zinit'
   bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 fi
 
 debug 'zinit'
 source "$ZINIT_HOME/zinit.zsh"
 
-# =============================
-# PLUGINS
-# =============================
 
-debug 'zinit basic plugins'
-zinit load zdharma/history-search-multi-word
-zinit light zsh-users/zsh-history-substring-search
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/fast-syntax-highlighting
 
-debug 'zinit completion'
-zinit light zsh-users/zsh-completions
-zinit light gradle/gradle-completion
+# # generic
+# bindkey -e
+# bindkey "^[[A" history-substring-search-up # up
+# bindkey "^[[B" history-substring-search-down # down
+# bindkey "^[[2~" overwrite-mode # ins
+# bindkey -M menuselect "^[[Z" reverse-menu-complete # shift + tab
 
-# =============================
-# THEME
-# =============================
+# # macOS
+# bindkey "^[^[[D" backward-word # alt + left
+# bindkey "^[^[[C" forward-word # alt + right
+# bindkey "^[OH" beginning-of-line # cmd + left ?
+# bindkey "^[OF" end-of-line # cmd + right ?
 
-debug 'zinit theme'
-zinit ice depth=1
-zinit light romkatv/powerlevel10k
+# # Windows
+# bindkey "^[[1;5D" backward-word # ctrl + left
+# bindkey "^[[1;5C" forward-word # ctrl + right
+# bindkey "^[[H" beginning-of-line # home
+# bindkey "^[[F" end-of-line # end
+# bindkey "^[[3~" delete-char # del
 
-# =============================
-# CUSTOM SCRIPTS
-# =============================
+# # Linux
+# # bindkey "^[OA" history-substring-search-up # up
+# # bindkey "^[OB" history-substring-search-down # down
+
+# # IntelliJ on Linux
+# bindkey "^[O5D" backward-word # ctrl-left
+# bindkey "^[O5C" forward-word # ctrl-right
+
+
+
+debug 'plugins'
+# defer loading as many plugins as possible to improve startup time (turbo mode)
+# syntax-highlighting replays buffered compdef commands before loading
+# zsh-completions are (re-)installed to disk on installation/update
+# homebrew already manages completions for its programs (yq, kubectl, etc.)
+zi wait lucid for \
+  atinit"zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
+  blockf atclone'zinit creinstall -q .' atpull"%atclone" zsh-users/zsh-completions \
+  zdharma-continuum/history-search-multi-word
+  # zsh-users/zsh-history-substring-search
+
+debug 'theme'
+zi depth=1 light-mode for romkatv/powerlevel10k
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 debug 'portable scripts'
 for f in ~/.posix/*; do
@@ -105,48 +91,35 @@ for f in ~/.posix/*; do
   . $f
 done
 
-debug 'zsh scripts'
-for f in ~/.zsh/*; do
-  debug "sourcing $f"
-  . $f
-done
+# debug 'zsh scripts'
+# for f in ~/.zsh/*; do
+#   debug "sourcing $f"
+#   . $f
+# done
 
-# =============================
-# MORE COMPLETIONS
-# =============================
+debug 'programs'
+eval "$(nodenv init -)"
 
-debug 'kubectl completions'
-if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
-fi
+debug 'completion settings'
 
-debug 'helm completions'
-if [ $commands[helm] ]; then
-    source <(helm completion zsh)
-fi
+# https://unix.stackexchange.com/questions/214657/what-does-zstyle-do
+# Do menu-driven completion.
+zstyle ':completion:*' menu select
 
-# debug 'zinit completions (need to do this manually, since we sourced zinit.zsh after calling compinit)'
-# autoload -Uz _zinit
-# (( ${+_comps} )) && _comps[zinit]=_zinit
+# Color completion for some things.
+# http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-debug 'fzf'
-source "$HOME"/.fzf/fzf-options.sh
-source "$HOME"/.fzf/fzf.zsh
+# formatting and messages
+# http://www.masterzen.fr/2009/04/19/in-love-with-zsh-part-one/
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format "$fg[yellow]%B--- %d%b"
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format "$fg[red]No matches for:$reset_color %d"
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
 
-debug 'direnv completions'
-eval "$(direnv hook zsh)"
-
-debug 'nodenv completions'
-eval "$(nodenv init -)" # End of Zinit's installer chunk
-
-debug 'sdkman'
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/sebastian/.sdkman"
-[[ -s "/Users/sebastian/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/sebastian/.sdkman/bin/sdkman-init.sh"
-
-debug 'ng completions'
-if [ $commands[ng] ]; then
-    source <(ng completion script)
-fi
+# case insensitive substring expansion
+zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
 debug 'done'

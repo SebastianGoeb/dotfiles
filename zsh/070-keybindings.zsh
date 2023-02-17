@@ -1,7 +1,5 @@
 # generic
 bindkey -e
-bindkey "^[[A" history-substring-search-up # up
-bindkey "^[[B" history-substring-search-down # down
 bindkey "^[[2~" overwrite-mode # ins
 bindkey -M menuselect "^[[Z" reverse-menu-complete # shift + tab
 
@@ -17,10 +15,6 @@ bindkey "^[[1;5C" forward-word # ctrl + right
 bindkey "^[[H" beginning-of-line # home
 bindkey "^[[F" end-of-line # end
 bindkey "^[[3~" delete-char # del
-
-# Linux
-bindkey "^[OA" history-substring-search-up # up
-bindkey "^[OB" history-substring-search-down # down
 
 # IntelliJ on Linux
 bindkey "^[O5D" backward-word # ctrl-left
