@@ -44,11 +44,13 @@ source "$ZINIT_HOME/zinit.zsh"
 # bindkey "^[[2~" overwrite-mode # ins
 # bindkey -M menuselect "^[[Z" reverse-menu-complete # shift + tab
 
-# # macOS
-# bindkey "^[^[[D" backward-word # alt + left
-# bindkey "^[^[[C" forward-word # alt + right
-# bindkey "^[OH" beginning-of-line # cmd + left ?
-# bindkey "^[OF" end-of-line # cmd + right ?
+# macOS
+bindkey "^[^[[D" backward-word # alt + left iterm2
+bindkey "^[^[[C" forward-word # alt + right iterm2
+bindkey "^[b" backward-word # alt + left vscode
+bindkey "^[f" forward-word # alt + right vscode
+bindkey "^A" beginning-of-line # cmd + left
+bindkey "^E" end-of-line # cmd + right
 
 # # Windows
 # bindkey "^[[1;5D" backward-word # ctrl + left
