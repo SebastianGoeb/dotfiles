@@ -79,7 +79,13 @@ zi wait lucid for \
   atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
   blockf atclone'zinit creinstall -q .' atpull"%atclone" zsh-users/zsh-completions \
   zdharma-continuum/history-search-multi-word
-  # zsh-users/zsh-history-substring-search
+
+# install and auto-update sdkman
+zi ice as"program" pick"$ZPFX/sdkman/bin/sdk" id-as'sdkman' run-atpull \
+    atclone"curl \"https://get.sdkman.io/?rcupdate=false\" > scr.sh; SDKMAN_DIR=$ZPFX/sdkman bash scr.sh" \
+    atpull"SDKMAN_DIR=$ZPFX/sdkman sdk selfupdate" \
+    atinit"export SDKMAN_DIR=$ZPFX/sdkman; source $ZPFX/sdkman/bin/sdkman-init.sh"
+zi light zdharma-continuum/null
 
 debug 'theme'
 zi depth=1 light-mode for romkatv/powerlevel10k
