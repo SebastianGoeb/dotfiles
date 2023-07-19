@@ -8,13 +8,17 @@
         name: community.general
 
     - name: Install packages with homebrew
-      become: yes
       community.general.homebrew:
+        name:
+          - tmux
+      when: ansible_distribution == "MacOSX"
+
+    - name: Install casks with homebrew
+      community.general.homebrew_cask:
         name:
           - visual-studio-code
           - postman
           - hot
           - iterm2
-          - tmux
-        state: present
       when: ansible_distribution == "MacOSX"
+
