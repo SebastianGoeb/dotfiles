@@ -10,7 +10,48 @@
     - name: Install packages with homebrew
       community.general.homebrew:
         name:
+          - ansible
+          # TODO do I need this?
+          # - azure-cli
+          - coreutils
+          # TODO do I need this?
+          # - diff-so-fancy
+          - direnv
+          # TODO do I need this?
+          # - dive
+          - docker
+          - envchain
+          # TODO do I need this?
+          # - exiftool
+          - fzf
+          # TODO do I need this?
+          # - gh
+          - helm
+          - htop
+          # TODO do I need this?
+          # - imagemagick
+          - iperf3
+          - iproute2mac
+          - jq
+          - k9s
+          # TODO do I need this?
+          # - ktlint
+          - kubectx
+          - maven
+          # TODO do I need this?
+          # - mitmproxy
+          - neovim
+          - nmap
+          # TODO also n?
+          - nodenv
+          - pstree
+          - pv
+          # TODO do I need this?
+          # - rcm
           - tmux
+          - watch
+          - wireshark
+          - yq
       when: ansible_distribution == "MacOSX"
 
     - name: Install casks with homebrew
