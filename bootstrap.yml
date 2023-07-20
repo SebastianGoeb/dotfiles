@@ -63,7 +63,6 @@
           - mongodb-compass
           - postman
           - temurin
-          - toggl-track
           - visual-studio-code
       when: ansible_distribution == "MacOSX"
 
