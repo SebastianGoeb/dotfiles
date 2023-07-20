@@ -27,6 +27,15 @@
         state: link
         force: yes
 
+    - name: nvchad
+      tags: dotfiles
+      file:
+        src: '{{ playbook_dir }}/config/nvchad-custom'
+        dest: ~/.config/nvim/lua/custom
+        state: link
+        force: yes
+
+
     - name: iterm2-config
       tags: dotfiles
       ansible.builtin.shell: |
