@@ -108,6 +108,7 @@
           - microsoft-edge
           - mongodb-compass
           - postman
+          - rectangle
           - temurin
           - visual-studio-code
       when: ansible_distribution == "MacOSX"
