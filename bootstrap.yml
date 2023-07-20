@@ -58,7 +58,6 @@
       community.general.homebrew_cask:
         name:
           - brave-browser
-          - google-chrome
           - hot
           - iterm2
           - jetbrains-toolbox
