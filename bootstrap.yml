@@ -57,9 +57,12 @@
     - name: Install casks with homebrew
       community.general.homebrew_cask:
         name:
+          - brave-browser
+          - google-chrome
           - hot
           - iterm2
           - jetbrains-toolbox
+          - microsoft-edge
           - mongodb-compass
           - postman
           - temurin
