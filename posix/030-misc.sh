@@ -14,6 +14,10 @@ export PATH="/usr/local/sbin:$PATH"
 # User Binaries
 export PATH="$PATH:$HOME/.bin"
 
+# n: https://github.com/tj/n
+export PATH="$PATH:$HOME/n/bin"
+export N_PREFIX="$HOME/n"
+
 stopwatch() {
     date1=`date +%s`; while true; do
         echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r";

@@ -12,7 +12,7 @@
         - vimrc
         - tmux.conf
       file:
-        src: '{{ playbook_dir }}/{{ item }}'
+        src: "{{ playbook_dir }}/{{ item }}"
         dest: ~/.{{ item }}
         state: link
         force: yes
@@ -22,7 +22,7 @@
       loop:
         - custom_iterm2_settings
       file:
-        src: '{{ playbook_dir }}/config/{{ item }}'
+        src: "{{ playbook_dir }}/config/{{ item }}"
         dest: ~/.config/{{ item }}
         state: link
         force: yes
@@ -30,11 +30,10 @@
     - name: nvchad
       tags: dotfiles
       file:
-        src: '{{ playbook_dir }}/config/nvchad-custom'
+        src: "{{ playbook_dir }}/config/nvchad-custom"
         dest: ~/.config/nvim/lua/custom
         state: link
         force: yes
-
 
     - name: iterm2-config
       tags: dotfiles
@@ -85,6 +84,7 @@
           - neovim
           - nmap
           # TODO also n?
+          - n
           - nodenv
           - pstree
           - pv
@@ -111,4 +111,3 @@
           - temurin
           - visual-studio-code
       when: ansible_distribution == "MacOSX"
-
