@@ -65,6 +65,7 @@
           - pv
           # TODO do I need this?
           # - rcm
+          - rustup-init
           - tmux
           - watch
           - wireshark
