@@ -2,12 +2,29 @@
   hosts: localhost
 
   tasks:
+    - name: dotfiles
+      tags: dotfiles
+      loop:
+        - zshrc
+        - posix
+        - zsh
+        - p10k.zsh
+        - vimrc
+        - tmux.conf
+      file:
+        src: '{{ playbook_dir }}/{{ item }}'
+        dest: ~/.{{ item }}
+        state: link
+        force: yes
+
     - name: Install collection community.general
+      tags: packages
       community.general.ansible_galaxy_install:
         type: collection
         name: community.general
 
     - name: Install packages with homebrew
+      tags: packages
       community.general.homebrew:
         name:
           - ansible
@@ -55,6 +72,7 @@
       when: ansible_distribution == "MacOSX"
 
     - name: Install casks with homebrew
+      tags: packages
       community.general.homebrew_cask:
         name:
           - brave-browser
