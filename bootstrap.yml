@@ -17,6 +17,22 @@
         state: link
         force: yes
 
+    - name: configs
+      tags: dotfiles
+      loop:
+        - custom_iterm2_settings
+      file:
+        src: '{{ playbook_dir }}/config/{{ item }}'
+        dest: ~/.config/{{ item }}
+        state: link
+        force: yes
+
+    - name: iterm2-config
+      tags: dotfiles
+      ansible.builtin.shell: |
+        defaults write com.googlecode.iterm2 PrefsCustomFolder -string "~/.config/custom_iterm2_settings"
+        defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
     - name: Install collection community.general
       tags: packages
       community.general.ansible_galaxy_install:
