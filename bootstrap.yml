@@ -57,9 +57,13 @@
     - name: Install casks with homebrew
       community.general.homebrew_cask:
         name:
-          - visual-studio-code
-          - postman
           - hot
           - iterm2
+          - jetbrains-toolbox
+          - mongodb-compass
+          - postman
+          - temurin
+          - toggl-track
+          - visual-studio-code
       when: ansible_distribution == "MacOSX"
 
