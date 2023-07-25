@@ -111,4 +111,5 @@
           - rectangle
           - temurin
           - visual-studio-code
+          - whatsapp
       when: ansible_distribution == "MacOSX"
