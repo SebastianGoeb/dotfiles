@@ -21,3 +21,7 @@ zmodload -i zsh/complist
 if [ $commands[az] ]; then
     source /usr/local/etc/bash_completion.d
 fi
+
+if [ $commands[ng] ]; then
+    source <(ng completion script)
+fi
