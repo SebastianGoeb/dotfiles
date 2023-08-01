@@ -101,6 +101,7 @@
       tags: packages
       community.general.homebrew_cask:
         name:
+          - amethyst
           - brave-browser
           - hot
           - iterm2
