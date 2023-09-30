@@ -1,5 +1,5 @@
 [core]
-  sshCommand = ssh -i ~/.ssh/id_rsa_dvag
+  sshCommand = ssh -i ~/.ssh/id_dvag
 [user]
   name = Sebastian Göb
   email = sebastian.goeb.extern@dvag.com
