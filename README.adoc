@@ -31,7 +31,6 @@ Bootstrap dotfiles
 
 * Install Bitwarden from App Store because only that version supports biometric authentication
 * Download and install Fira Code Nerd Font Retina: https://www.nerdfonts.com/font-downloads
-* Set iTerm2 to use above font with ligatures
 
 === To-Do
 * replace zinit with antibody + zsh-defer?
