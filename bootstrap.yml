@@ -5,12 +5,13 @@
     - name: dotfiles
       tags: dotfiles
       loop:
-        - zshrc
+        - gitconfig
         - posix
-        - zsh
         - p10k.zsh
-        - vimrc
         - tmux.conf
+        - vimrc
+        - zsh
+        - zshrc
       file:
         src: "{{ playbook_dir }}/{{ item }}"
         dest: ~/.{{ item }}
@@ -21,6 +22,7 @@
       tags: dotfiles
       loop:
         - custom_iterm2_settings
+        - git
       file:
         src: "{{ playbook_dir }}/config/{{ item }}"
         dest: ~/.config/{{ item }}
