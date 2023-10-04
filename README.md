@@ -23,8 +23,16 @@ Install miscellaneous things that don't work with Ansible
 
 ### Manually Adjust Settings
 
-- Keyboard Shortcuts -> Function Keys -> Use F1, F2, etc. keys as standard function keys -> `true`
-- Keyboard Shortcuts -> Services -> Text -> Search man Page Index in Terminal -> `false`
+- Keyboard
+  - Key repeat rate: `Fast`
+  - Delay until repeat: `Short`
+  - Input Sources: `ABC Extended`
+  - Keyboard Shortcuts
+    - Function Keys -> Use F1, F2, etc. keys as standard function keys: `true`
+    - Services -> Text -> Search man Page Index in Terminal: `false`
+- Trackpad
+  - Point & Click -> Tap to click: `true`
+  - More Gestures -> App Exposé: `Swipe Down with Three Fingers`
 
 ### To-Do
 
