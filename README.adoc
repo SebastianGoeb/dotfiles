@@ -2,35 +2,31 @@
 
 == Installation
 
-=== MacOS with Homebrew
-
-Install Homebrew from https://brew.sh
-
-Clone this repository
+Clone repository
 
 [source,shell script]
 ----
-git clone https://github.com/sebastianGoeb/dotfiles /path/to/git_repos/dotfiles
+git clone https://github.com/sebastianGoeb/dotfiles ~/somewhere/dotfiles
 ----
 
-Install rcm
+== Usage
 
-[source,shell script]
-----
-brew install rcm
-----
-
-Bootstrap dotfiles
+Install dotfiles, applications, etc.
 
 [source,shell script]
 ----
 ./install
 ----
 
-=== Manual Steps
+Install miscellaneous things that don't work with Ansible
 
 * Install Bitwarden from App Store because only that version supports biometric authentication
 * Download and install Fira Code Nerd Font Retina: https://www.nerdfonts.com/font-downloads
+
+=== Manually Adjust Settings
+
+* Keyboard Shortcuts -> Function Keys -> Use F1, F2, etc. keys as standard function keys -> `true`
+* Keyboard Shortcuts -> Services -> Text -> Search man Page Index in Terminal -> `false`
 
 === To-Do
 * replace zinit with antibody + zsh-defer?
