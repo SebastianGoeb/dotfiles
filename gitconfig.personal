@@ -1,5 +1,5 @@
 [core]
-  sshCommand = ssh -i ~/.ssh/id_personal
+  sshCommand = ssh -i ~/.ssh/id_personal_ed25519
 [user]
   name = Sebastian Göb
   email = sebastiancgoeb@gmail.com

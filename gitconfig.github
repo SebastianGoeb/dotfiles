@@ -1,5 +1,0 @@
-[core]
-  sshCommand = ssh -i ~/.ssh/id_rsa_personal
-[user]
-  name = Sebastian Göb
-  email = sebastiancgoeb@gmail.com
