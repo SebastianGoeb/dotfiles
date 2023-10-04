@@ -1,29 +1,29 @@
 [color]
 	ui = true
 [core]
-    excludesfile = ~/.config/git/gitignore
-    safecrlf = warn
-    autocrlf = input
+	excludesfile = ~/.config/git/gitignore
+	safecrlf = warn
+	autocrlf = input
 	attributesfile = ~/.config/git/gitattributes
 
 [pull]
-    ff = only
+	ff = only
 [push]
-    default = simple
+	default = simple
 	autoSetupRemote = true
 
 [filter "lfs"]
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 
 [includeIf "gitdir:~/dev/personal/"]
-    path = ~/.config/git/gitconfig.personal
+	path = ~/.config/git/gitconfig.personal
 [includeIf "gitdir:~/dev/mm/"]
-    path = ~/.config/git/gitconfig.main-method
+	path = ~/.config/git/gitconfig.main-method
 [includeIf "gitdir:~/dev/db/"]
-    path = ~/.config/git/gitconfig.db
+	path = ~/.config/git/gitconfig.db
 
 [color "diff-highlight"]
 	oldNormal = red bold
@@ -38,4 +38,3 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
-
