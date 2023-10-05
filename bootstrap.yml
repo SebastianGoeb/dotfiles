@@ -68,7 +68,8 @@
           # - exiftool
           - fzf
           # TODO do I need this?
-          # - gh
+          - gh
+          - glab
           - helm
           - htop
           # TODO do I need this?
