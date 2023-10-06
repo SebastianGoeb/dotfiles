@@ -101,10 +101,12 @@
           - n
           - nodenv
           - pstree
+          - prettier
           - pv
           # TODO do I need this?
           # - rcm
           - rustup-init
+          - shfmt
           - tmux
           - watch
           - wireshark
