@@ -18,6 +18,17 @@
         state: link
         force: yes
 
+    - name: dirs
+      tags: dotfiles
+      loop:
+        - tools
+      file:
+        src: "{{ playbook_dir }}/{{ item }}"
+        dest: ~/{{ item }}
+        state: link
+        force: yes
+
+
     - name: configs
       tags: dotfiles
       loop:
@@ -105,17 +116,17 @@
       community.general.homebrew_cask:
         name:
           - amethyst
-#          - brave-browser
-#          - hot
+          #          - brave-browser
+          #          - hot
           - iterm2
           - jetbrains-toolbox
-#          - microsoft-edge
-#          - mongodb-compass
+          #          - microsoft-edge
+          #          - mongodb-compass
           - obsidian
-#          - postman
+          #          - postman
           - rectangle
           - spotify
-#          - temurin
+          #          - temurin
           - visual-studio-code
           - whatsapp
       when: ansible_distribution == "MacOSX"
