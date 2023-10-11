@@ -3,9 +3,9 @@ alias grep="grep --color"
 
 # ls
 case "$OSTYPE" in
-    bsd*)       alias ls="ls -G" ;;
-    darwin*)    alias ls="ls -G" ;;
-    *)          alias ls="ls --color" ;;
+bsd*) alias ls="ls -G" ;;
+darwin*) alias ls="ls -G" ;;
+*) alias ls="ls --color" ;;
 esac
 alias la="ls -A"
 alias l="ls -lh"
@@ -50,3 +50,5 @@ alias grmgone="git fetch -p && for branch in \$(git for-each-ref --format '%(ref
 # kubectx
 alias kcx="kubectx"
 alias kns="kubens"
+
+alias git_update_repos="find . -maxdepth 1 -type d | parallel git_update_repo"
